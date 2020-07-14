@@ -1,7 +1,7 @@
 /* Sidebar */
 .sidebar {
   position: fixed;
-  transition: ease-in-out;
+  transition: all 1sec;
   transform: translateX(-20rem);
   width:20rem;
   background-color: grey ;

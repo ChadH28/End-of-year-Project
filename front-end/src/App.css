@@ -11,6 +11,10 @@ body {
   margin:0;
 }
 
+#root {
+  height:100%;
+}
+
 .App{
   display: grid;
   grid-template-areas:
@@ -26,6 +30,3 @@ body {
   grid-area: main;
   background-color: chocolate;
 }
-
-
-

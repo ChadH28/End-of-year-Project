@@ -1,5 +1,6 @@
 import React from 'react';
 import './Navbar.css';
+import {Link} from 'react-router-dom'
 
 function Navbar() {
     const openMenu = () => {
@@ -10,11 +11,12 @@ function Navbar() {
         <nav className='navbar'>
             <div className='nav-brand'>
                 <button onClick={openMenu}>&#9776;</button>
-                <a href='/'>Fineprint</a>
+                <Link to='/'>Fineprint</Link>
             </div>
             <div className='nav-links'>
-                <a href='/'>Cart</a>
-                <a href='/'>Sign In</a>
+                <Link to='/'>Cart</Link>
+                <Link to='/'>Sign In</Link>
+                <Link to='/product/12'>Product</Link>
             </div>
         </nav>
     )

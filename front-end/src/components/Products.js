@@ -1,47 +1,28 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import './Products.css';
-import d1 from './images/d1.jpg';
+import data from '../Data';
+import image from './images/d1.jpg'
 
 function Products() {
     return (
         <div className='content'>
           <ul className='products'>
-            <li>
-              <div className='product'>
-                <img src={d1} alt='product item'/>
-                <div className='product-name'>Slim Shirt</div>
-                <div className='product-brand'>Nike</div>
-                <div className='price'>R120</div>
-                <div className='rating'>3 Stars (1 Review)</div>
-              </div>
-            </li>
-            <li>
-              <div className='product'>
-                <img src={d1} alt='product item'/>
-                <div className='product-name'>Slim Shirt</div>
-                <div className='product-brand'>Nike</div>
-                <div className='price'>R120</div>
-                <div className='rating'>3 Stars (1 Review)</div>
-              </div>
-            </li>
-            <li>
-              <div className='product'>
-                <img src={d1} alt='product item'/>
-                <div className='product-name'>Slim Shirt</div>
-                <div className='product-brand'>Nike</div>
-                <div className='price'>R120</div>
-                <div className='rating'>3 Stars (1 Review)</div>
-              </div>
-            </li>
-            <li>
-              <div className='product'>
-                <img src={d1} alt='product item'/>
-                <div className='product-name'>Slim Shirt</div>
-                <div className='product-brand'>Nike</div>
-                <div className='price'>R120</div>
-                <div className='rating'>3 Stars (1 Review)</div>
-              </div>
-            </li>
+            {
+                data.products.map(product =>
+                    <li>
+                        <div className='product'>
+                            <Link to={'/product/'+ product._id}>
+                                <img className='product-image' src={image} alt='product item'/>
+                            </Link>
+                            <div className='product-name'><Link to={'/product/'+ product._id}>{product.name}</Link></div>
+                            <div className='product-brand'>{product.brand}</div>
+                            <div className='price'>R{product.price}</div>
+                            <div className='rating'>{product.rating} Stars ({product.reviews} Review)</div>
+                        </div>
+                    </li>
+                )
+            }
           </ul>
         </div>
     )
