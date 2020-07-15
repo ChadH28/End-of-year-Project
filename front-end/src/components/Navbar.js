@@ -8,15 +8,17 @@ function Navbar() {
     };
 
     return (
-        <nav className='navbar'>
-            <div className='nav-brand'>
-                <button onClick={openMenu}>&#9776;</button>
-                <Link to='/'>Fineprint</Link>
-            </div>
-            <div className='nav-links'>
-                <Link to='/'>Cart</Link>
-                <Link to='/'>Sign In</Link>
-                <Link to='/product/12'>Product</Link>
+        <nav>
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <button className="btn-floating btn-small waves-effect waves-light teal" onClick={openMenu}>&#9776;</button>
+                    <Link to='/'>Fineprint</Link>
+                </div>
+                <ul id="nav-mobile" class="right">
+                    <li><Link to='/'>Cart</Link></li>
+                    <li><Link to='/'>Sign In</Link></li>
+                    <li><Link to='/product/12'>Product</Link></li>
+                </ul>
             </div>
         </nav>
     )
