@@ -1,12 +1,10 @@
-import image from './components/images/d3.jpg';
-
 export default {
     products: [
         {
             _id: '1',
             name: 'Slim Shirt',
             category: 'Shirts',
-            image: {image},
+            image: '/images/d3.jpg',
             price: 120,
             material: 'cotton',
             size: 'S',
@@ -17,7 +15,7 @@ export default {
             _id: '2',
             name: 'V-Neck',
             category: 'Shirts',
-            image: {image},
+            image: '/images/d3.jpg',
             price: 120,
             material: 'cotton',
             size: 'XL',
@@ -28,7 +26,7 @@ export default {
             _id: '3',
             name: 'Tapered Pants',
             category: 'Pants',
-            image: {image},
+            image: '/images/d3.jpg',
             price: 120,
             material: 'cotton',
             size: 'M',

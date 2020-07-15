@@ -25,7 +25,7 @@ function ProductPage(props) {
                             {product.rating} Stars ({product.reviews}) Reviews
                         </li>
                         <li>
-                            <b>{product.price}</b>
+                            <b>R {product.price}</b>
                         </li>
                         <li>
                             Description:
@@ -36,7 +36,7 @@ function ProductPage(props) {
                 <div className='description-action'>
                     <ul>
                         <li>
-                            Price: {product.price}
+                            Price: R{product.price}
                         </li>
                         <li>
                             Status: {product.status}
