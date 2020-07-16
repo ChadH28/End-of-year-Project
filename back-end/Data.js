@@ -10,6 +10,7 @@ export default {
             size: 'S',
             rating: 3,
             reviews: 1,
+            numInStock: 8
         },
         {
             _id: '2',
@@ -21,6 +22,7 @@ export default {
             size: 'XL',
             rating: 4,
             reviews: 7,
+            numInStock: 14            
         },
         {
             _id: '3',
@@ -32,6 +34,7 @@ export default {
             size: 'M',
             rating: 2,
             reviews: 10,
+            numInStock: 6
         }
     ]
 };

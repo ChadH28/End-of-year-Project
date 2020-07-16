@@ -10,6 +10,7 @@ import Footer from './components/Footer';
 // Pages
 import HomePage from './components/pages/Homepage';
 import ProductPage from './components/pages/Productpage';
+import CartPage from './components/pages/Cartpage';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <main className='main'>
         <Route path='/' exact={true} component={HomePage} />
         <Route path='/product/:id' component={ProductPage} />
+        <Route path='/product/cart/:id?' component={CartPage} />
       </main>
       <Footer/>
     </div>
