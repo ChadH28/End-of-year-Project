@@ -3,22 +3,24 @@ import data from './Data';
 import config from './Config';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import userRoute from './routes/userRoute'
 
 dotenv.config();
 
-// connecting to mongoB
-const mongodbUrl = config.MONGODB_URL;
-// connecting to mongoose
+// connecting to mongodb
 const mongodbUrl = config.MONGODB_URL;
     mongoose.connect(mongodbUrl, {
-        useNewUrlParser: true   
-  })
-  .catch((error) => console.log(error.reason));
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useCreateIndex: true,  
+    })
+    .catch((error) => console.log(error.reason));
 
 
 const app = express();
 
 // creating pathways
+app.use('/api/users', userRoute);
 app.get('/api/products', (req,res) => {
     res.send(data.products);
 });
