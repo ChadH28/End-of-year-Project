@@ -1,5 +1,20 @@
 import express from 'express';
 import data from './Data';
+import config from './Config';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+// connecting to mongoB
+const mongodbUrl = config.MONGODB_URL;
+// connecting to mongoose
+const mongodbUrl = config.MONGODB_URL;
+    mongoose.connect(mongodbUrl, {
+        useNewUrlParser: true   
+  })
+  .catch((error) => console.log(error.reason));
+
 
 const app = express();
 
