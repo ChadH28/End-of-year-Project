@@ -5,6 +5,7 @@ import { descriptionProduct } from '../../actions/productActions';
 import './Productpage.css';
 
 function ProductPage(props) {
+
     const [qty, setQty] = useState(1);
     const productDescription = useSelector(state => state.productDescription);
     const { product, loading, error } = productDescription;

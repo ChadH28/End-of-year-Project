@@ -1,6 +1,7 @@
 import express from 'express';
 import data from './Data';
 import config from './Config';
+import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import userRoute from './routes/userRoute'
@@ -21,6 +22,7 @@ const app = express();
 
 // creating pathways
 app.use('/api/users', userRoute);
+app.use(bodyParser.json())
 app.get('/api/products', (req,res) => {
     res.send(data.products);
 });

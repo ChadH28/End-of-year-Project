@@ -11,6 +11,7 @@ import Footer from './components/Footer';
 import HomePage from './components/pages/Homepage';
 import ProductPage from './components/pages/Productpage';
 import CartPage from './components/pages/Cartpage';
+import SigninPage from './components/pages/Signinpage';
 
 function App() {
   return (
@@ -19,9 +20,10 @@ function App() {
       <Navbar/>
       <Sidebar/>
       <main className='main'>
-        <Route path='/' exact={true} component={HomePage} />
-        <Route path='/product/:id' component={ProductPage} />
-        <Route path='/product/cart/:id?' component={CartPage} />
+        <Route path='/' exact={true} component={HomePage}/>
+        <Route path='/product/:id' component={ProductPage}/>
+        <Route path='/product/cart/:id?' component={CartPage}/>
+        <Route path='/signin' component={SigninPage}/>
       </main>
       <Footer/>
     </div>

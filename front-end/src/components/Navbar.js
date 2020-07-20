@@ -16,8 +16,11 @@ function Navbar() {
                 </div>
                 <ul id="nav-mobile" class="right">
                     <li><Link to='/'>Cart</Link></li>
-                    <li><Link to='/'>Sign In</Link></li>
-                    <li><Link to='/product/12'>Product</Link></li>
+                    {   
+                        userInfo ? <li><Link to='/profile'>{userInfo.name}</Link></li>
+                        :
+                        <li><Link to='/signin'>Sign In</Link></li>
+                    }
                 </ul>
             </div>
         </nav>
