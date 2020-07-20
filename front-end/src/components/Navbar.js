@@ -1,11 +1,16 @@
 import React from 'react';
 import './Navbar.css';
 import {Link} from 'react-router-dom'
+import { useSelector } from 'react-redux';
 
 function Navbar() {
+    
     const openMenu = () => {
         document.querySelector('.sidebar').classList.add('open');
     };
+
+    const userSignin = useSelector((state) => state.userSignin);
+    const {userInfo} = userSignin;
 
     return (
         <nav>

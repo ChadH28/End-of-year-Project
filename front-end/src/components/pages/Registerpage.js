@@ -53,8 +53,7 @@ function Registerpage(props) {
                     </li>
                     <li>
                         Already have an account with Printful?
-                        <Link to={redirect === "/" ? "signin" : "signin?redirect=" + redirect} className="button secondary text-center" >Create your amazona account</Link>
-
+                        <Link to={redirect === "/" ? "signin" : "signin?redirect=" + redirect} className="button secondary text-center" >Create your Printful account</Link>
                     </li>
                 </ul>
             </form>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './Signinpage.css';
 import { Link } from 'react-router-dom';
-import signin from '../../actions/userActions'
+import {signin, register} from '../../actions/userActions'
 
 function SigninPage(props) {
 

@@ -8,6 +8,10 @@ import userRoute from './routes/userRoute'
 
 dotenv.config();
 
+const app = express();
+const PORT = process.env.PORT || 4000
+app.listen(PORT, () => {console.log(`SERVER STARTED AT LOCALHOST:${PORT}`)});
+
 // connecting to mongodb
 const mongodbUrl = config.MONGODB_URL;
     mongoose.connect(mongodbUrl, {
@@ -17,15 +21,14 @@ const mongodbUrl = config.MONGODB_URL;
     })
     .catch((error) => console.log(error.reason));
 
-
-const app = express();
-
-// creating pathways
+// Defining Routes
 app.use('/api/users', userRoute);
 app.use(bodyParser.json())
 app.get('/api/products', (req,res) => {
     res.send(data.products);
 });
+
+// pulling out one product from the products list via the id
 app.get('/api/products:id', (req,res) => {
     const productId = req.params.id;
     const product = data.products.find(x => x._id === productId)
@@ -35,4 +38,3 @@ app.get('/api/products:id', (req,res) => {
         res.status(404).send({msg: "Product not found"})
 });
 
-app.listen(5000, () => {console.log('SERVER STARTED AT http://localhost:5000')});
