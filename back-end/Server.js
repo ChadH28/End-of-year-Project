@@ -1,8 +1,7 @@
 import express from 'express';
+import connectDB from './config/db'
 import data from './Data';
-import config from './Config';
 import bodyParser from 'body-parser';
-import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import userRoute from './routes/userRoute'
 
@@ -12,14 +11,9 @@ const app = express();
 const PORT = process.env.PORT || 4000
 app.listen(PORT, () => {console.log(`SERVER STARTED AT LOCALHOST:${PORT}`)});
 
-// connecting to mongodb
-const mongodbUrl = config.MONGODB_URL;
-    mongoose.connect(mongodbUrl, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        useCreateIndex: true,  
-    })
-    .catch((error) => console.log(error.reason));
+// Connnecting database to mongoDB
+connectDB();
+
 
 // Defining Routes
 app.use('/api/users', userRoute);
