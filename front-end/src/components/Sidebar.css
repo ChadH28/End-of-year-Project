@@ -2,9 +2,9 @@
 .sidebar {
   position: fixed;
   transition: all 1sec;
-  transform: translateX(-20rem);
-  width:20rem;
-  background-color: grey ;
+  transform: translateX(-200px);
+  width:200px;
+  background-color: white ;
   opacity: 0.9;
   height: 100%;
 }
@@ -18,10 +18,15 @@
 .sidebar-close-button {
   border-radius: 50%;
   border: none;
-  font-size: 2rem;
+  font-size: 20px;
   cursor: pointer;
   position: absolute;
-  right: 0.5rem;
-  top: 1.5rem;
+  right: 5px;
+  top: 15px;
   background-color: lightcoral;
+}
+
+.sidebar-close-button:hover {
+  background-color: lightcoral;
+  opacity: 0.8;
 }

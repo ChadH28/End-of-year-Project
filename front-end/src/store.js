@@ -4,7 +4,7 @@ import {productListReducer, productDescriptionReducer} from './components/reduce
 import { cartReducer } from './components/reducers/cartReducer';
 import { userSigninReducer } from './components/reducers/userReducer';
 
-const initialState = {cart: {cartItems}, userSignin: {userInfo}};
+const initialState = {cart: {}, userSignin: {}};
 
 const reducer = combineReducers({
     productList: productListReducer,

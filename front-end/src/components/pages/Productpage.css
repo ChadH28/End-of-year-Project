@@ -3,35 +3,35 @@
     justify-content: space-between;
     align-items: flex-start;
     flex-wrap: wrap;
-    padding: 1rem;
+    padding: 10px;
 }
 
 .description-image {
-    flex: 2 1 60rem;
+    flex: 2 1 600px;
 }
 
 .description-image img {
-    max-width: 60rem;
+    max-width: 600px;
     widows: 100%;
-    height: 50rem;
+    height: 500px;
 }
 
 .description-info {
-    flex: 1 1 30rem;
+    flex: 1 1 300px;
 }
 
 .description-action {
-    flex: 1 1 30rem;
-    border: .1rem solid grey ; 
+    flex: 1 1 300px;
+    border: 1px solid grey ; 
     background-color: lightseagreen;
-    padding: 1rem;
+    padding: 10px
 }
 
 .description-info li, .description-action li {
-    margin-bottom: 1rem;
+    margin-bottom: 10px;
 }
 
 .back-link {
-    padding: 1rem;
-    font-size: 2rem;
+    padding: 10px;
+    font-size: 14px;
 }

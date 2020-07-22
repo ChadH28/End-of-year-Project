@@ -16,7 +16,7 @@ function Navbar() {
         <nav>
             <div class="nav-wrapper">
                 <div class="brand-logo">
-                    <button className="btn-floating btn-small waves-effect waves-light teal" onClick={openMenu}>&#9776;</button>
+                    <button className="btn-flat" onClick={openMenu}>&#9776;</button>
                     <Link to='/'>Fineprint</Link>
                 </div>
                 <ul id="nav-mobile" class="right">

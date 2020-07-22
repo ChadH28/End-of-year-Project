@@ -2,10 +2,8 @@ import express from 'express';
 import connectDB from './config/db'
 import data from './Data';
 import bodyParser from 'body-parser';
-import dotenv from 'dotenv';
 import userRoute from './routes/userRoute'
 
-dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 4000

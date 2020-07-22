@@ -3,5 +3,18 @@
   background-color: crimson;
   display: flex;
   justify-content: center;
-  align-items: center;
+  text-align: center;
+  font-size: 10px;
+  font-weight: bold;
+  color: white;
+}
+
+.footer a {
+  color: white;
+}
+
+.footer-copyright{
+  margin-top: 2.5px;
+  text-align: center;
+
 }
