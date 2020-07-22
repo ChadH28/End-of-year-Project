@@ -14,18 +14,18 @@ function Navbar() {
 
     return (
         <nav>
-            <div class="nav-wrapper">
-                <div class="brand-logo">
+            <div className="nav-wrapper">
+                <div className="brand-logo">
                     <button className="btn-flat" onClick={openMenu}>&#9776;</button>
                     <Link to='/'>Fineprint</Link>
                 </div>
-                <ul id="nav-mobile" class="right">
-                    <li><Link to='/'>Cart</Link></li>
-                    {   
-                        userInfo ? <li><Link to='/profile'>{userInfo.name}</Link></li>
-                        :
-                        <li><Link to='/signin'>Sign In</Link></li>
-                    }
+                <ul id="nav-mobile" className="right">
+                {   
+                    userInfo ? <li><Link to='/profile'>{userInfo.name}</Link></li>
+                    :
+                    <li><Link to='/signin'><i class="material-icons">account_circle</i></Link></li>
+                }
+                    <li><Link to='/'><i class="material-icons">shopping_cart</i></Link></li>
                 </ul>
             </div>
         </nav>

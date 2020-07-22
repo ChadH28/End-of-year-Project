@@ -14,10 +14,13 @@ function Sidebar() {
             </button>
             <ul>
                 <li>
-                    <a className='waves-effect' href='/'>Shirts</a>
+                    <a className='waves-effect' href='/'>HEADWEAR</a>
                 </li>
                 <li>
-                    <a class="waves-effect" href='/'>Pants</a>
+                    <a className="waves-effect" href='/'>TOPS</a>
+                </li>
+                <li>
+                    <a className="waves-effect" href='/'>BOTTOMS</a>
                 </li>
             </ul>
         </aside>
