@@ -3,11 +3,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-     height: 100%;
+    text-align: center;
+    height: 100%;
+    padding: 10px;
 }
 
 .form-container {
-    display: flex;
+    
     flex-direction: column;
     width: 340px;
     padding: 20px;

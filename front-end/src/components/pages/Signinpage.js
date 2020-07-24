@@ -39,7 +39,7 @@ function SigninPage(props) {
                 </li>
                 <li>
                     <label htmlFor="email">Email</label>
-                    <input type="email" name="email" id="email" onChange={(e) => setEmail(e.target.value)}/>
+                    <input className="validate" type="email" name="email" id="email" onChange={(e) => setEmail(e.target.value)}/>
                 </li>
                 <li>
                     <label htmlFor="password">Password</label>
@@ -49,7 +49,7 @@ function SigninPage(props) {
                     <button type="submit" className="button primary">Signin</button>
                 </li>
                 <li>
-                    New to printful?
+                    New to Fineprint?
                 </li>
                 <li>
                     <Link to={redirect === "/" ? "register" : "register?redirect=" + redirect} className="button secondary text-center" >Create your printful account here</Link>

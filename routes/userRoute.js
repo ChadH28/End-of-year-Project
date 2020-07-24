@@ -1,16 +1,18 @@
-import express from 'express';
-import User from '../models/userModel';
+const express = require('express');
+const User = require('../models/userModel');
 
 const router = express.Router();
 
-// for submitting user data to database for register purposes
+// For submitting user data to database for register purposes.
 router.post('/register', async (req, res) => {
     const user = new User({
         name: req.body.name,
         email: req.body.email,
         password: req.body.password,
     });
+
     const newUser = await user.save();
+
     if (newUser) {
         res.send({
             _id: newUser.id,
@@ -24,7 +26,7 @@ router.post('/register', async (req, res) => {
     }
 });
 
-// for submitting user data to database for signing in purposes
+// For submitting user data to database for signing in purposes.
 router.post('/signin', async (req, res) => {
     const signinUser = await User.findOne({
         email: req.body.email,
@@ -46,17 +48,20 @@ router.post('/signin', async (req, res) => {
 // get admin
 router.get('/createadmin', async (req, res) => {
     try {
+
         const user = new User({
             name: 'Chad',
             email: 'chadhoosain@gmail.com',
             password: '1234',
             isAdmin: true,
         });
+
         const newUser = await user.save();
-            res.send(newUser);
+        res.send(newUser);
+
     } catch (error) {
         res.send({ message: error.message });
     }
 });
 
-export default router;
+module.exports = router;
