@@ -3,13 +3,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
     height: 100%;
-    padding: 10px;
 }
 
 .form-container {
-    
+    display:flex;
     flex-direction: column;
     width: 340px;
     padding: 20px;
@@ -29,4 +27,9 @@ input {
     padding: 10px;
     border: 1px #c0c0c0 solid;
     border-radius: 5px;
+}
+
+.btn-form {
+    background-color: blue;
+    text-align: center;
 }

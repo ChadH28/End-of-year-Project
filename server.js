@@ -17,12 +17,11 @@ connectDB();
 // Defining Routes.
 app.use('/api/users', userRoute);
 app.use(bodyParser.json())
+
 app.get('/api/products', (req,res) => {
     res.send(data.products);
 });
-
-// Pulling out one product from the products list via the id.
-app.get('/api/products:id', (req,res) => {
+app.get('/api/products/:id', (req,res) => {
     const productId = req.params.id;
     const product = data.products.find(x => x._id === productId)
     if(product)

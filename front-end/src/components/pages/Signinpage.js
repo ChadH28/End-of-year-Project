@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import './Signinpage.css';
+import './Formpages.css';
 import { Link } from 'react-router-dom';
-import {signin, register} from '../../actions/userActions'
+import {signin} from '../../actions/userActions';
+
 
 function SigninPage(props) {
 
-    const [email, password, setPassword, setEmail] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     const userSignin = useSelector(state => state.userSignin);
     const {loading, userInfo, error} = userSignin;
     const dispatch = useDispatch();
@@ -46,13 +48,13 @@ function SigninPage(props) {
                     <input type="password" id="password" name="password" onChange={(e) => setPassword(e.target.value)}/>
                 </li>
                 <li>
-                    <button type="submit" className="button primary">Signin</button>
+                    <button type="submit" className="btn-form">Signin</button>
                 </li>
                 <li>
                     New to Fineprint?
                 </li>
                 <li>
-                    <Link to={redirect === "/" ? "register" : "register?redirect=" + redirect} className="button secondary text-center" >Create your printful account here</Link>
+                    <Link to={redirect === "/" ? "register" : "register?redirect=" + redirect} className="button secondary text-center" >Create your Fineprint account here</Link>
                 </li>
             </ul>
         </form>

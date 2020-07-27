@@ -12,6 +12,7 @@ function productListReducer(state = { products: [] }, action) {
         case PRODUCT_LIST_REQUEST:
             return {
                 loading: true,
+                products: []
             };
         case PRODUCT_LIST_SUCCESS:
             return {

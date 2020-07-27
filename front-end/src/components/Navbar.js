@@ -15,7 +15,7 @@ function Navbar() {
     return (
         <nav>
             <div className="nav-wrapper">
-                <div className="brand-logo">
+                <div className="brand-logo left" >
                     <button className="btn-flat" onClick={openMenu}>&#9776;</button>
                     <Link to='/'>Fineprint</Link>
                 </div>
@@ -23,9 +23,9 @@ function Navbar() {
                 {   
                     userInfo ? <li><Link to='/profile'>{userInfo.name}</Link></li>
                     :
-                    <li><Link to='/signin'><i class="material-icons">account_circle</i></Link></li>
+                    <li><Link to='/signin'><i className="material-icons">account_circle</i></Link></li>
                 }
-                    <li><Link to='/'><i class="material-icons">shopping_cart</i></Link></li>
+                    <li><Link to='/'><i className="material-icons">shopping_cart</i></Link></li>
                 </ul>
             </div>
         </nav>

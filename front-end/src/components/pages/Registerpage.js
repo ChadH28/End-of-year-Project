@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { register } from '../actions/userActions';
+import './Formpages.css';
 
 const [name, setName, email, setEmail, password, setPassword, rePassword, setRePassword] = useState('');
 const userRegister = useSelector(state => state.userRegister);
@@ -53,7 +54,7 @@ function Registerpage(props) {
                     </li>
                     <li>
                         Already have an account with Printful?
-                        <Link to={redirect === "/" ? "signin" : "signin?redirect=" + redirect} className="button secondary text-center" >Create your Printful account</Link>
+                        <Link to={redirect === "/" ? "signin" : "signin?redirect=" + redirect} className="btn-form" >Create your Printful account</Link>
                     </li>
                 </ul>
             </form>

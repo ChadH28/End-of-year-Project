@@ -1,3 +1,4 @@
 {
-    "mongoURI": "mongodb+srv://hoosain123:1234@back-end.bavse.mongodb.net/e-commerce?retryWrites=true&w=majority"
+    "mongoURI": "mongodb+srv://hoosain123:1234@back-end.bavse.mongodb.net/e-commerce?retryWrites=true&w=majority",
+    "jwtSecret": "secret"
 }

@@ -1,10 +1,21 @@
 const express = require('express');
 const User = require('../models/userModel');
-
+const jwt = require('jsonwebtoken');
 const router = express.Router();
 
-// For submitting user data to database for register purposes.
-router.post('/register', async (req, res) => {
+// @route   POST api/register
+// @desc    For submitting user data to database for register purposes.
+// @access  Public
+router.post('/register', 
+[
+    check('name', 'Please add Fullname.')
+    .not().isEmpty(),
+    check('email','Please include a valid email. ')
+    .isEmail(),
+    check('password', 'PLease enter a password with 6 or more characters.')
+    .isLength({min: 6})
+],
+async (req, res) => {
     const user = new User({
         name: req.body.name,
         email: req.body.email,
@@ -26,7 +37,9 @@ router.post('/register', async (req, res) => {
     }
 });
 
-// For submitting user data to database for signing in purposes.
+// @route   POST api/signin
+// @desc    For submitting user data to database for signing in purposes.
+// @access  Public
 router.post('/signin', async (req, res) => {
     const signinUser = await User.findOne({
         email: req.body.email,
@@ -45,7 +58,9 @@ router.post('/signin', async (req, res) => {
     }
 });
 
-// get admin
+// @route   POST api/signin
+// @desc    get admin
+// @access  Private
 router.get('/createadmin', async (req, res) => {
     try {
 

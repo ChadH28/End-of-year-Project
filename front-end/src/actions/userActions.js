@@ -1,4 +1,5 @@
 import axios from 'axios';
+import setAuthToken from '../utils/setAuthtoken'
 import {
     USER_SIGNIN_REQUEST,
     USER_SIGNIN_SUCCESS,
@@ -12,7 +13,7 @@ import {
 // signin actions
 const signin = (email, password) => async (dispatch) => {
     dispatch({
-        type:USER_SIGNIN_REQUEST,
+        type: USER_SIGNIN_REQUEST,
         payload: { email, password }
     });
     try {
