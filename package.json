@@ -5,8 +5,10 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "server": "nodemon server.js"
-
+    "server": "nodemon server.js",
+    "front-end": "npm start --prefix front-end",
+    "front-endinstall": "npm install --prefix front-end",
+    "dev": "concurrently \"npm run server\" \"npm run front-end\""
   },
   "repository": {
     "type": "git",

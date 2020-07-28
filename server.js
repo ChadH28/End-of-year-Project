@@ -1,8 +1,9 @@
 const express = require('express');
 const connectDB = require('./config/db');
-const data = require('./Data');
+const data = require('./data');
 const bodyParser = require('body-parser');
 const userRoute = require('./routes/userRoute');
+const productRoute = require('./routes/productRoute');
 
 
 const app = express();
@@ -16,6 +17,7 @@ connectDB();
 
 // Defining Routes.
 app.use('/api/users', userRoute);
+app.use('/api/products', productRoute);
 app.use(bodyParser.json())
 
 app.get('/api/products', (req,res) => {

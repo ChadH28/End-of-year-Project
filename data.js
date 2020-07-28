@@ -1,4 +1,4 @@
-
+module.exports = {
 products: [
     {
         _id: '1',
@@ -37,3 +37,4 @@ products: [
         numInStock: 6
     }
 ]
+}

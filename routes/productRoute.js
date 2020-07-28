@@ -1,5 +1,5 @@
-import express from 'express';
-import Product from '../models/productModel';
+const express = require('express');
+const Product = require('../models/productModel');
 
 const router = express.Router();
 
@@ -26,3 +26,5 @@ router.get(':id', async (req, res) => {
       res.status(404).send({ message: 'Product Not Found.' });
     }
 });
+
+module.exports = router;

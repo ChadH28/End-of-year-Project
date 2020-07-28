@@ -2,6 +2,7 @@ const express = require('express');
 const User = require('../models/userModel');
 const jwt = require('jsonwebtoken');
 const router = express.Router();
+const { check, validationResult } = require('express-validator');
 
 // @route   POST api/register
 // @desc    For submitting user data to database for register purposes.
