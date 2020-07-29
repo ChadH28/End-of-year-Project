@@ -57,27 +57,6 @@ async (req, res) => {
 });  
 
 // @route   POST api/signin
-// @desc    For submitting user data to database for signing in purposes and for buying off website.
-// @access  Public
-router.post('/signin', async (req, res) => {
-    const signinUser = await User.findOne({
-        email: req.body.email,
-        password: req.body.password,
-    });
-    if (signinUser) {
-        res.send({
-            _id: signinUser.id,
-            name: signinUser.name,
-            email: signinUser.email,
-            isAdmin: signinUser.isAdmin,
-            token: getToken(signinUser),
-        });
-    } else {
-        res.status(401).send({ message: 'Invalid Email or Password.' });
-    }
-});
-
-// @route   POST api/signin
 // @desc    get admin
 // @access  Private
 router.get('/createadmin', async (req, res) => {

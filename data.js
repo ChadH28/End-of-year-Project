@@ -4,7 +4,7 @@ products: [
         _id: '1',
         name: 'Slim Shirt',
         category: 'Shirts',
-        image: '/img/d3.jpg',
+        image: 'components/images/d3.jpg',
         price: 120,
         material: 'cotton',
         size: 'S',

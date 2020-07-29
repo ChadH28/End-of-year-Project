@@ -3,6 +3,7 @@ const connectDB = require('./config/db');
 const data = require('./data');
 const userRoute = require('./routes/userRoute');
 const productRoute = require('./routes/productRoute');
+const authRoute = require('./routes/authRoute')
 
 
 const app = express();
@@ -19,9 +20,12 @@ app.use(express.json({extended:false}));
 // Defining Routes.
 app.use('/api/users', userRoute);
 app.use('/api/products', productRoute);
+app.use('/api/userAuth', authRoute);
 
+// getting data from the database from data.js
 app.get('/api/products', (req,res) => {
-    res.send(data.products);
+    const products = data.products
+        res.send(products);
 });
 
 app.get('/api/products/:id', (req,res) => {

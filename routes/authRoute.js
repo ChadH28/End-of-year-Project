@@ -4,15 +4,26 @@ const router = express.Router();
 const { check, validationResult } = require('express-validator');
 const config = require('config');
 const jwt = require('jsonwebtoken');
+const userAuth = require('../middleware/authorisation');
+// user model
+const User = require('../models/userModel');
 
-// @route   GET api/auth
-// @desc    Get a logged in user
+
+// @route   GET api/userAuth
+// @desc    Get a logged in user using authentication
 // @access  Private
-router.get('/', (req,res) => {
-    res.send('Get logged in user')
-})
+router.get('/', userAuth, async (req,res) => {
+    try {
+        const user = await User.findById(req.user.id).select('-password');
+        res.json(user);
+    }
+     catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+});
 
-// @route   POST api/auth
+// @route   POST api/userAuth
 // @desc    Authenticate user and get token
 // @access  Public
 router.post('/',
@@ -55,7 +66,7 @@ router.post('/',
             console.error(err.message);
             res.status(500).send('Server Error');
         }
-    },
+    }
 );
 
 module.exports = router;

@@ -1,5 +1,4 @@
 import axios from 'axios';
-import setAuthToken from '../utils/setAuthtoken'
 import {
     USER_SIGNIN_REQUEST,
     USER_SIGNIN_SUCCESS,
@@ -14,10 +13,10 @@ import {
 const signin = (email, password) => async (dispatch) => {
     dispatch({
         type: USER_SIGNIN_REQUEST,
-        payload: { email, password }
+        payload: {email, password}
     });
     try {
-        const {data} = await axios.post("/api/users/signin", { email, password });
+        const {data} = await axios.post("/api/userAuth", {email, password});
         dispatch({
             type: USER_SIGNIN_SUCCESS,
             payload: data
@@ -33,10 +32,10 @@ const signin = (email, password) => async (dispatch) => {
 const register = (name, email, password) => async (dispatch) => {
     dispatch({
         type: USER_REGISTER_REQUEST,
-        payload: { name, email, password }
+        payload: {name, email, password}
     });
     try {
-        const { data } = await axios.post("/api/users/register", { name, email, password });
+        const {data} = await axios.post("/api/users/register", {name, email, password});
         dispatch({
             type: USER_REGISTER_SUCCESS,
             payload: data
