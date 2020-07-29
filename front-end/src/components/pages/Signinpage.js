@@ -48,7 +48,7 @@ function SigninPage(props) {
                     <input type="password" id="password" name="password" onChange={(e) => setPassword(e.target.value)}/>
                 </li>
                 <li>
-                    <button type="submit" className="btn-form">Signin</button>
+                    <button type="submit" className="form-btn">Signin</button>
                 </li>
                 <li>
                     New to Fineprint?

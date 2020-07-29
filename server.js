@@ -1,7 +1,6 @@
 const express = require('express');
 const connectDB = require('./config/db');
 const data = require('./data');
-const bodyParser = require('body-parser');
 const userRoute = require('./routes/userRoute');
 const productRoute = require('./routes/productRoute');
 
@@ -11,18 +10,20 @@ const PORT = process.env.PORT || 5000  // You can add a comment here why you wan
 
 app.listen(PORT, () => {console.log(`SERVER STARTED AT LOCALHOST:${PORT}`)});
 
-// Connnecting database to mongoDB
+// Connnecting to mongoDB
 connectDB();
 
+// Init Middleware
+app.use(express.json({extended:false}));
 
 // Defining Routes.
 app.use('/api/users', userRoute);
 app.use('/api/products', productRoute);
-app.use(bodyParser.json())
 
 app.get('/api/products', (req,res) => {
     res.send(data.products);
 });
+
 app.get('/api/products/:id', (req,res) => {
     const productId = req.params.id;
     const product = data.products.find(x => x._id === productId)

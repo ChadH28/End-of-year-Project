@@ -50,7 +50,7 @@ function Registerpage(props) {
                         <input type="password" id="rePassword" name="rePassword" onChange={(e) => setRePassword(e.target.value)}/>
                     </li>
                     <li>
-                        <button type="submit" className="button primary">Register</button>
+                        <button type="submit" className="form-btn">Register</button>
                     </li>
                     <li>
                         Already have an account with Printful?
