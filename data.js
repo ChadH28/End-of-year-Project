@@ -17,12 +17,12 @@ products: [
         name: 'V-Neck',
         category: 'Shirts',
         image: '/img/d3.jpg',
-        price: 120,
-        material: 'cotton',
+        price: 140,
+        material: 'wool',
         size: 'XL',
         rating: 4,
         reviews: 7,
-        numInStock: 14            
+        numInStock: 0           
     },
     {
         _id: '3',

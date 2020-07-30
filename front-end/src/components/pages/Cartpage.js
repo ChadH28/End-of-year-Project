@@ -11,6 +11,7 @@ function CartPage(props) {
 
     const productId = props.match.params.id;
     const qty = props.location.search? Number(props.location.search.split('=')[1]):1;
+
     const dispatch = useDispatch();
     const removeFromCartHandler = (productId) => {
         dispatch(removeFromCart(productId))
@@ -23,7 +24,7 @@ function CartPage(props) {
     }, [])
 
     const checkoutHandler = () => {
-        props.history.push('/signin/')
+        props.history.push('/userAuth/')
     }
 
     return (

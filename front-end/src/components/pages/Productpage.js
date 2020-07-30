@@ -61,10 +61,14 @@ function ProductPage(props) {
                                 Status: {product.numInStock > 0 ? 'In Stock': 'Sorry, out of stock'}
                             </li>
                             <li>
-                                Qty:<select value={qty} onChange={(e) => {setQty(e.target.value)}}>
-                                    {[...Array(product.numInStock).keys()].map(x =>
-                                        <option key={x+1} value={x+1}>{x+1}</option>)}
-                                </select>
+                                Qty:{
+                                <select value={qty} onChange={(e) => {setQty(e.target.value)}}>
+                                    {[...Array(product.numInStock).keys()].map((x) => (
+                                        <option key={x + 1} value={x + 1}>
+                                            {x + 1}
+                                        </option>
+                                    ))}
+                                </select>}
                             </li>
                             <li>
                                 {product.numInStock > 0 && <button onClick={handleAddToCart}>Add to cart</button>}
