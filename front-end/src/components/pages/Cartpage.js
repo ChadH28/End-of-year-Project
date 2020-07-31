@@ -13,9 +13,7 @@ function CartPage(props) {
     const qty = props.location.search? Number(props.location.search.split('=')[1]):1;
 
     const dispatch = useDispatch();
-    const removeFromCartHandler = (productId) => {
-        dispatch(removeFromCart(productId))
-    }
+
 
     useEffect(() => {
         if (productId){
@@ -23,8 +21,12 @@ function CartPage(props) {
         }
     }, [])
 
+    const removeFromCartHandler = (productId) => {
+        dispatch(removeFromCart(productId))
+    }
+
     const checkoutHandler = () => {
-        props.history.push('/userAuth/')
+        props.history.push('/signin/')
     }
 
     return (
@@ -47,28 +49,29 @@ function CartPage(props) {
                                     </div>
                                     <div>
                                         Qty:
-                                        <select value={item.qty} onChange={(e) => addToCart(item.product, e.target.value)}>
+                                        <select>
                                             <option value='1'>1</option>
                                             <option value='2'>2</option>
                                             <option value='3'>3</option>
                                         </select>
                                         <button type='button' className='button' onClick={() => removeFromCartHandler(item.product)}>Delete</button>
                                     </div>
-                                    <div className='cart-price'>{item.price}</div>
+                                    <div className='cart-price'>R {item.price}</div>
                                 </div>
-                            </div>)
+                            </div>
+                        )
                     }
                 </ul>
             </div>
-            <div className='cart-action'>
-                    <h3>
-                        Subtotal ({cartItems.reduce((a,c) => a+c.qty)} items)
-                        :
-                         R {cartItems.reduce((a,c) => a + c.price * c.qty, 0)}
-                    </h3>
-                    <button onClick={checkoutHandler} className='button primary' disabled={cartItems.length === 0}>
-                        Proceed to checkout
-                    </button>
+            <div className="cart-action">
+                <h3>
+                    Subtotal for {cartItems.reduce((a, c) => a + c.qty, 0)} item(s)
+                    :
+                    R {cartItems.reduce((a, c) => a + c.price * c.qty, 0)}
+                </h3>
+                <button onClick={checkoutHandler} className="button primary full-width" disabled={cartItems.length === 0}>
+                    Proceed to Checkout
+                </button> 
             </div>
         </div>
     )

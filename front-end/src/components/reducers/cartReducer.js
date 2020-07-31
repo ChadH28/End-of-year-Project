@@ -1,6 +1,8 @@
 import {
     CART_ADD_ITEM,
-    CART_REMOVE_ITEM
+    CART_REMOVE_ITEM,
+    CART_ADD_ITEM_FAIL,
+    CART_REMOVE_ITEM_FAIL
 } from "../constants/cartConstants";
 
 function cartReducer(state = {cartItems: []}, action) {
@@ -10,13 +12,26 @@ function cartReducer(state = {cartItems: []}, action) {
             const product = state.cartItems.find(x => x.product === item.product);
             if (product) {
                 return {
-                    cartItems:
-                        state.cartItems.map(x => x.product === product.product ? item : x)
+                    cartItems: state.cartItems.map(x => x.product === product.product ? item : x)
                 };
             }
-            return { cartItems: [...state.cartItems, item] };
+            return { 
+                cartItems: [...state.cartItems, item]
+            };
+        case CART_ADD_ITEM_FAIL:
+            return {
+                loading: false,
+                error: action.payload
+            };
         case CART_REMOVE_ITEM:
-            return { cartItems: state.cartItems.filter(x => x.product !== action.payload) };
+            return {
+                cartItems: state.cartItems.filter(x => x.product !== action.payload)
+            };
+        case CART_REMOVE_ITEM_FAIL:
+            return {
+                loading: false,
+                error: action.payload
+            };
         default:
             return state
     }

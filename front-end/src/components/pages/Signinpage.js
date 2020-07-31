@@ -54,7 +54,7 @@ function SigninPage(props) {
                     New to Fineprint?
                 </li>
                 <li>
-                    <Link to={redirect === "/" ? "register" : "register?redirect=" + redirect} className="button secondary text-center" >Create your Fineprint account here</Link>
+                    <Link to='/register' className="button secondary text-center" >Create your Fineprint account here</Link>
                 </li>
             </ul>
         </form>

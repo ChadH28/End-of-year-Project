@@ -12,6 +12,7 @@ import HomePage from './components/pages/Homepage';
 import ProductPage from './components/pages/Productpage';
 import CartPage from './components/pages/Cartpage';
 import SigninPage from './components/pages/Signinpage';
+import RegisterPage from './components/pages/Registerpage';
 
 function App() {
   return (
@@ -22,8 +23,9 @@ function App() {
       <main className='main'>
         <Route path='/' exact={true} component={HomePage}/>
         <Route path='/product/:id' component={ProductPage}/>
-        <Route path='/product/cart/:id?' component={CartPage}/>
+        <Route path='/cart/:id?' component={CartPage}/>
         <Route path='/signin' component={SigninPage}/>
+        <Route path='/register' component={RegisterPage}/>
       </main>
       <Footer/>
     </div>

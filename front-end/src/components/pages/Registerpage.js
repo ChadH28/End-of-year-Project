@@ -1,29 +1,34 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { register } from '../actions/userActions';
+import { register } from '../../actions/userActions';
 import './Formpages.css';
 
-const [name, setName, email, setEmail, password, setPassword, rePassword, setRePassword] = useState('');
-const userRegister = useSelector(state => state.userRegister);
-const { loading, userInfo, error } = userRegister;
-const dispatch = useDispatch();
-
-useEffect(() => {
-    if (userInfo) {
-        props.history.push('/');
-    }
-    return () => {
-    //
-    };
-    }, [userInfo]);
-
-const submitHandler = (e) => {
-    e.preventDefault();
-    dispatch(register(name, email, password));
-}
 
 function Registerpage(props) {
+
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [rePassword, setRePassword] = useState('');
+    const userRegister = useSelector(state => state.userRegister);
+    const { loading, userInfo, error } = userRegister;
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        if (userInfo) {
+            props.history.push('/');
+        }
+        return () => {
+        //
+        };
+        }, [userInfo]);
+
+    const submitHandler = (e) => {
+        e.preventDefault();
+        dispatch(register(name, email, password));
+    }
+
     return (
         <div className="form">
             <form onSubmit={submitHandler} >
@@ -35,7 +40,7 @@ function Registerpage(props) {
                     </li>
                     <li>
                         <label htmlFor="name">Name</label>
-                        <input type="name" name="name" id="name" onChange={(e) => setName(e.target.value)}/>
+                        <input type="text" name="name" id="name" onChange={(e) => setName(e.target.value)}/>
                     </li>
                     <li>
                         <label htmlFor="email">Email</label>
@@ -43,19 +48,16 @@ function Registerpage(props) {
                     </li>
                     <li>
                         <label htmlFor="password">Password</label>
-                        <input type="password" id="password" name="password" onChange={(e) => setPassword(e.target.value)}/>
+                        <input type="password" name="password" id="password" onChange={(e) => setPassword(e.target.value)}/>
                     </li>
                     <li>
                         <label htmlFor="rePassword">Re-Enter Password</label>
-                        <input type="password" id="rePassword" name="rePassword" onChange={(e) => setRePassword(e.target.value)}/>
+                        <input type="password" name="rePassword" id="rePassword" onChange={(e) => setRePassword(e.target.value)}/>
                     </li>
                     <li>
                         <button type="submit" className="form-btn">Register</button>
                     </li>
-                    <li>
-                        Already have an account with Printful?
-                        <Link to={redirect === "/" ? "signin" : "signin?redirect=" + redirect} className="btn-form" >Create your Printful account</Link>
-                    </li>
+
                 </ul>
             </form>
         </div>
