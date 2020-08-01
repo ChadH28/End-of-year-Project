@@ -4,7 +4,10 @@ import {
     PRODUCT_LIST_FAIL,
     PRODUCT_DETAILS_REQUEST,
     PRODUCT_DETAILS_SUCCESS,
-    PRODUCT_DETAILS_FAIL
+    PRODUCT_DETAILS_FAIL,
+    PRODUCT_SAVE_REQUEST,
+    PRODUCT_SAVE_SUCCESS,
+    PRODUCT_SAVE_FAIL,
 } from "../components/constants/productConstants";
 import axios from 'axios';
 
@@ -45,7 +48,35 @@ const descriptionProduct = (productId) => async (dispatch) => {
     }
 };
 
+const saveProduct = (product) => async (dispatch) => {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+
+    try {
+        dispatch({
+            type: PRODUCT_SAVE_REQUEST,
+            payload: product
+        });
+        
+            const {data} = await axios.post('/api/products',product);
+            dispatch({
+                type: PRODUCT_SAVE_SUCCESS,
+                payload: data
+            });
+
+    } catch (err) {
+        dispatch({
+            type: PRODUCT_SAVE_FAIL,
+            payload: err.response.msg
+        });
+    }
+};
+
 export {
     listProducts,
-    descriptionProduct
+    descriptionProduct,
+    saveProduct
 };

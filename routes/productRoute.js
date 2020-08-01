@@ -1,5 +1,8 @@
 const express = require('express');
+const { check, validationResult } = require('express-validator');
 const Product = require('../models/productModel');
+const userAuth = require('../middleware/authorisation');
+const adminAuth = require('../middleware/authorisation');
 
 const router = express.Router();
 
@@ -30,5 +33,47 @@ router.get(':id', async (req, res) => {
     res.status(500).send('Product Not Found.');
   }
 });
+
+// @route   POST api/products
+// @desc    add new product
+// @access  Private
+router.post('/',
+
+  [
+    check('Product', 'Product is required')
+      .not()
+      .isEmpty(),
+  ],
+
+async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({errors: errors.array()});
+  }
+
+  const {name, price, image, material, category, numInStock, description, rating, numReviews} = req.body;
+  try {
+    const newProduct = new Product({
+      name,
+      price,
+      image,
+      material,
+      category,
+      numInStock,
+      description,
+      rating,
+      numReviews
+    });
+
+    const product = await newProduct.save();
+
+    res.json(product);
+    res.send({ message: 'New Product Created', data: product });
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send(' Server Error in Creating Product.');
+  }
+},
+);
 
 module.exports = router;

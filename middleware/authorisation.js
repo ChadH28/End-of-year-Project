@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 const config = require('config');
 
-module.exports = function(req, res, next) {
+module.exports = function userAuth(req, res, next) {
     // Get token from header
     const token = req.header('x-auth-token');
 
@@ -17,6 +17,14 @@ module.exports = function(req, res, next) {
         next();
     }
      catch (err) {
-        res.status(401).json({ msg: 'Token is not valid or has expired' });
+        res.status(401).json({ msg: 'Token is not valid' });
     }
+};
+
+module.exports = function adminAuth(req, res, next) {
+    // Check if user or admin
+    if (req.user && req.user.isAdmin) {
+        return next()
+    }
+    res.status(401).json({ msg: 'Admin token is not valid' });
 };
