@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  saveProduct
+  saveProduct,
+  listProducts,
+  deleteProduct
 } from '../../actions/productActions';
 
 function ProductMangement(props) {
+    const [_id, setId] = useState('');
     const [name, setName] = useState("");
     const [price, setPrice] = useState("");
     const [image, setImage] = useState("");
@@ -12,22 +15,49 @@ function ProductMangement(props) {
     const [category, setCategory] = useState("");
     const [numInStock, setNumInStock] = useState("");
     const [description, setDescription] = useState("");
+    const [modal, setModal] = useState(false);
+
+    const productList = useSelector((state) => state.productList);
+    const { loading, products, error } = productList;
 
     const productSave = useSelector((state) => state.productSave);
-
     const {
         loading: loadingSave,
         success: successSave,
         error: errorSave,
     } = productSave;
+   
+
+    const productDelete = useSelector((state) => state.productDelete);
+    const {
+        loading: loadingDelete,
+        success: successDelete,
+        error: errorDelete,
+    } = productDelete;
+
     const dispatch = useDispatch();
 
     useEffect(() => {
-
+        dispatch(listProducts());
+        if(successSave) {
+            setModal(false);
+        }
     return () => {
         //
     };
-    }, []);
+    }, [successSave, successDelete]);
+
+    const openModal = (product) => {
+        setModal(true);
+        setId(product._id);
+        setName(product.name);
+        setPrice(product.price);
+        setDescription(product.description);
+        setImage(product.image);
+        setMaterial(product.material);
+        setCategory(product.category);
+        setNumInStock(product.numInStock);
+    };
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -44,11 +74,18 @@ function ProductMangement(props) {
         );
     };
 
+    const deleteHandler = (product) => {
+        dispatch(deleteProduct(product._id));
+    };
+
+
     return (
     <div className="content content-margined">
         <div className="product-header">
             <h3>Products</h3>
+            <button className="waves-effect waves-light btn modal-trigger" onClick={() => openModal({})}>Create Product</button>
         </div>
+        {modal &&
         <div className="form">
             <form onSubmit={submitHandler}>
                 <ul className="form-container">
@@ -76,7 +113,7 @@ function ProductMangement(props) {
                         <input type="text" name="material" value={material} id="material" onChange={(e) => setMaterial(e.target.value)}/>
                     </li>
                     <li>
-                        <label htmlFor="countInStock">InStock</label>
+                        <label htmlFor="numInStock">InStock</label>
                         <input type="text" name="numInStock" value={numInStock} id="numInStock" onChange={(e) => setNumInStock(e.target.value)}/>
                     </li>
                     <li>
@@ -88,15 +125,14 @@ function ProductMangement(props) {
                         <textarea name="description" value={description} id="description" onChange={(e) => setDescription(e.target.value)}/>
                     </li>
                     <li>
-                        <button type="submit" className="button primary">
-                            Create
-                        </button>
+                        <button type="submit" className="button primary">{_id ? "Update":"Create"}</button>
+                        <button type="button" onClick={() => setModal(false)} className="button primary">Back</button>
                     </li>
                 </ul>
             </form>
         </div>
+        }
   
-
         <div className="product-list">
             <table className="table">
                 <thead>
@@ -109,8 +145,21 @@ function ProductMangement(props) {
                         <th>Action</th>
                     </tr>
                 </thead>
-
-                
+                <tbody>
+                {products.map((product) => (
+                    <tr key={product._id}>
+                        <td>{product._id}</td>
+                        <td>{product.name}</td>
+                        <td>{product.price}</td>
+                        <td>{product.category}</td>
+                        <td>{product.material}</td>
+                        <td>
+                            <button onClick={() => openModal(product)}><i className="material-icons">edit</i></button>
+                            <button onClick={() => deleteHandler(product)}><i className="material-icons">delete</i></button>
+                        </td>
+                    </tr>
+                ))}
+                </tbody>
             </table>
         </div>
     </div>

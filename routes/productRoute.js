@@ -36,7 +36,7 @@ router.get(':id', async (req, res) => {
 
 // @route   POST api/products
 // @desc    add new product
-// @access  Private
+// @access  Private for admin
 router.post('/',
 
   [
@@ -75,5 +75,54 @@ async (req, res) => {
   }
 },
 );
+
+// @route     PUT api/products/:id
+// @desc      Update product
+// @access    Private for admin
+router.put('/:id', async (req, res) => {
+
+  const {name, price, image, material, category, numInStock, description, rating, numReviews} = req.body;
+  try {
+    const productId = req.params.id;
+    const product = await Product.findById(productId);
+    if (product) {
+      product.name = name;
+      product.price = price;
+      product.image = image;
+      product.material = material;
+      product.category = category;
+      product.numInStock = numInStock;
+      product.description = description;
+      product.rating = rating;
+      product.numReviews = numReviews;
+    
+      const updatedProduct = await product.save();
+      if (updatedProduct) {
+        return res
+          .status(200)
+          .send({ message: 'Product Updated', data: updatedProduct });
+      }
+    }
+  }
+  catch (err) {
+    console.error(err.message);
+    res.status(500).send('Error in Updating Product');
+  }
+});
+
+// @route     DELETE api/products/:id
+// @desc      Delete product
+// @access    Private for admin
+router.delete('/:id', async (req, res) => {
+  try {
+    const deletedProduct = await Product.findById(req.params.id);
+      await deletedProduct.remove();
+      res.send({ message: 'Product Deleted' });
+  }
+  catch (err) {
+    console.error(err.message);
+    res.send('Error in Deletion of product.')
+  }
+});
 
 module.exports = router;

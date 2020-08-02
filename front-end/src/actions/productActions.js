@@ -8,9 +8,13 @@ import {
     PRODUCT_SAVE_REQUEST,
     PRODUCT_SAVE_SUCCESS,
     PRODUCT_SAVE_FAIL,
+    PRODUCT_DELETE_REQUEST,
+    PRODUCT_DELETE_SUCCESS,
+    PRODUCT_DELETE_FAIL 
 } from "../components/constants/productConstants";
 import axios from 'axios';
 
+// listing products
 const listProducts = () => async (dispatch) => {
     try {
         dispatch({
@@ -29,6 +33,7 @@ const listProducts = () => async (dispatch) => {
     } 
 }
 
+// pulling out a prouct from products
 const descriptionProduct = (productId) => async (dispatch) => {
     try {
         dispatch({
@@ -48,11 +53,10 @@ const descriptionProduct = (productId) => async (dispatch) => {
     }
 };
 
+// Adding and updating products
 const saveProduct = (product) => async (dispatch) => {
     const config = {
-      headers: {
-        'Content-Type': 'application/json'
-      }
+        headers: {'Content-Type': 'application/json'}
     };
 
     try {
@@ -61,12 +65,19 @@ const saveProduct = (product) => async (dispatch) => {
             payload: product
         });
         
-            const {data} = await axios.post('/api/products',product);
+        if (!product._id) {
+            const {data} = await axios.post('/api/products', product, config);
             dispatch({
                 type: PRODUCT_SAVE_SUCCESS,
                 payload: data
             });
-
+        } else {
+            const {data} = await axios.put('/api/products/' + product._id, product, config);
+            dispatch({
+                type: PRODUCT_SAVE_SUCCESS,
+                payload: data
+            });
+        }
     } catch (err) {
         dispatch({
             type: PRODUCT_SAVE_FAIL,
@@ -75,8 +86,34 @@ const saveProduct = (product) => async (dispatch) => {
     }
 };
 
+// deleting product
+const deleteProduct = (productId) => async (dispatch) => {
+    const config = {
+        headers: {'Content-Type': 'application/json'}
+    };
+    try {
+        dispatch({
+            type: PRODUCT_DELETE_REQUEST,
+            payload: productId
+        });
+        const {data} = await axios.delete('/api/products/' + productId, config);
+        dispatch({
+            type: PRODUCT_DELETE_SUCCESS,
+            payload: data,
+            success: true
+        });
+    }
+    catch (error) {
+        dispatch({
+            type: PRODUCT_DELETE_FAIL,
+            payload: error.message
+        });
+    }
+}
+
 export {
     listProducts,
     descriptionProduct,
-    saveProduct
+    saveProduct,
+    deleteProduct
 };
