@@ -14,6 +14,10 @@ import CartPage from './components/pages/Cartpage';
 import SigninPage from './components/pages/Signinpage';
 import RegisterPage from './components/pages/Registerpage';
 import ProductMangement from './components/pages/Productmangement';
+import ShippingPage from './components/pages/Shippingpage';
+import PaymentsPage from './components/pages/Paymentspage';
+import OrderPage from './components/pages/Orderpage';
+
 
 function App() {
   return (
@@ -28,6 +32,9 @@ function App() {
         <Route path='/signin' component={SigninPage}/>
         <Route path='/register' component={RegisterPage}/>
         <Route path='/management' component={ProductMangement}/>
+        <Route path='/shipping' component={ShippingPage}/>
+        <Route path='/payment' component={PaymentsPage}/>
+        <Route path='/placeorder' component={OrderPage}/>
       </main>
       <Footer/>
     </div>

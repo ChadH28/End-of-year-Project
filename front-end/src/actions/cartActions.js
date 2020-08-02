@@ -3,7 +3,9 @@ import {
     CART_ADD_ITEM,
     CART_REMOVE_ITEM,
     CART_ADD_ITEM_FAIL,
-    CART_REMOVE_ITEM_FAIL
+    CART_REMOVE_ITEM_FAIL,
+    CART_SAVE_SHIPPING,
+    CART_SAVE_PAYMENT
 } from "../components/constants/cartConstants";
 
 const addToCart = (productId, qty) => async (dispatch) => {
@@ -44,7 +46,23 @@ const removeFromCart = (productId) => (dispatch) => {
     } 
 }
 
+const saveShipping = (data) => (dispatch) => {
+    dispatch({
+        type: CART_SAVE_SHIPPING,
+        payload: data
+    });
+}
+
+const savePayment = (data) => (dispatch) => {
+    dispatch({
+        type: CART_SAVE_PAYMENT,
+        payload: data
+    });
+}
+
 export {
     addToCart,
-    removeFromCart
+    removeFromCart,
+    saveShipping,
+    savePayment
 }

@@ -16,7 +16,7 @@ function SigninPage(props) {
     
     useEffect(() => {
         if (userInfo) {
-            props.history.push('/');
+            props.history.push(redirect);
         }
         return () => {
         //
@@ -54,7 +54,7 @@ function SigninPage(props) {
                     New to Fineprint?
                 </li>
                 <li>
-                    <Link to='/register' className="button secondary text-center" >Create your Fineprint account here</Link>
+                    <Link to={redirect === "/" ? "register" : "register?redirect=" + redirect} className="button secondary text-center" >Create your Fineprint account here</Link>
                 </li>
             </ul>
         </form>
