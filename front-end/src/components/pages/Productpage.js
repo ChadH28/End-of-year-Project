@@ -25,9 +25,6 @@ function ProductPage(props) {
 
     return (
         <div>
-            <div>
-                <Link className='back-link' to='/'>Back to results</Link>
-            </div>
             {loading ? (<div>Loading...</div>)
             : error ? (<div>{error} </div>)
             : (            
@@ -71,7 +68,7 @@ function ProductPage(props) {
                                 </select>}
                             </li>
                             <li>
-                                {product.numInStock > 0 && <button onClick={handleAddToCart}>Add to cart</button>}
+                                {product.numInStock > 0 && <button class="waves-effect waves-light btn-small product-button"  onClick={handleAddToCart}>Add to cart</button>}
                             </li>
                         </ul>
                     </div>

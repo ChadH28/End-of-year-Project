@@ -79,14 +79,14 @@ function OrderPage(props) {
                     <div className="placeorder-action">
                         <ul>
                             <li>
-                                <button className="button primary full-width" onClick={placeOrderHandler}>Place Order</button>
+                                <button className="waves-effect waves-light btn-small order-btn" onClick={placeOrderHandler}>Place Order</button>
                             </li>
                             <li>
                                 <h3>Order Summary</h3>
                             </li>
                             <li>
                                 <div>Items</div>
-                                <div>${itemsPrice}</div>
+                                <div>R{itemsPrice}</div>
                             </li>
                             <li>
                                 <div>Shipping</div>
@@ -98,7 +98,7 @@ function OrderPage(props) {
                             </li>
                             <li>
                                 <div>Order Total</div>
-                                <div>${totalPrice}</div>
+                                <div>R{totalPrice}</div>
                             </li>
                         </ul>
                     </div>

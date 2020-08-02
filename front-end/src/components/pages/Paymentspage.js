@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { savePayment } from '../../actions/cartActions';
 import CheckoutSteps from '../Checkout';
+import './Formpages.css';
 
 function PaymentPage(props) {
     const [paymentMethod, setPaymentMethod] = useState('');
@@ -30,7 +30,7 @@ function PaymentPage(props) {
                                 </div>
                             </li>
                             <li>
-                                <button type="submit" className="button primary">Continue</button>
+                                <button type="submit" className="waves-effect waves-light btn-small form-btn">Continue</button>
                             </li>
                         </ul>
                     </form>

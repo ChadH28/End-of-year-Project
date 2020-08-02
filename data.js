@@ -35,6 +35,54 @@ products: [
         rating: 2,
         reviews: 10,
         numInStock: 6
+    },
+    {
+        _id: '4',
+        name: 'Canvas Hat',
+        category: 'Headwear',
+        image: '/img/d3.jpg',
+        price: 80,
+        material: 'cotton',
+        size: 'L',
+        rating: 6,
+        reviews: 5,
+        numInStock: 20
+    },
+    {
+        _id: '5',
+        name: 'Golfer',
+        category: 'Shirts',
+        image: '/img/d3.jpg',
+        price: 140,
+        material: 'silk',
+        size: 'M',
+        rating: 8,
+        reviews: 15,
+        numInStock: 0
+    },
+    {
+        _id: '6',
+        name: 'Bootleg Fit',
+        category: 'Pants',
+        image: '/img/d3.jpg',
+        price: 90,
+        material: 'denim',
+        size: 'S',
+        rating: 2,
+        reviews: 5,
+        numInStock: 15
+    },
+    {
+        _id: '4',
+        name: 'Beanie',
+        category: 'Headwear',
+        image: '/img/d3.jpg',
+        price: 60,
+        material: 'cotton',
+        size: 'M',
+        rating: 2,
+        reviews: 5,
+        numInStock: 21
     }
 ]
 }

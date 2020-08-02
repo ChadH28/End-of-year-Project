@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart, removeFromCart } from '../../actions/cartActions';
-import './Cartpage.css'
+import './Cartpage.css';
 import { Link } from 'react-router-dom';
 
 function CartPage(props) {
@@ -44,7 +44,7 @@ function CartPage(props) {
                                 <img className='cart-image' src={item.image} alt='product' />
                                 <div className='cart-name'>
                                     <div>
-                                        <Link to={'./product/' + item.productId}></Link>
+                                        <Link to={'/product/' + item.productId}></Link>
                                         {item.name}
                                     </div>
                                     <div>
@@ -54,7 +54,7 @@ function CartPage(props) {
                                             <option value='2'>2</option>
                                             <option value='3'>3</option>
                                         </select>
-                                        <button type='button' className='button' onClick={() => removeFromCartHandler(item.product)}>Delete</button>
+                                        <button type='button' className='waves-effect waves-light btn-small cart-button' onClick={() => removeFromCartHandler(item.product)}><i className="material-icons">delete</i></button>
                                     </div>
                                     <div className='cart-price'>R {item.price}</div>
                                 </div>
@@ -69,7 +69,7 @@ function CartPage(props) {
                     :
                     R {cartItems.reduce((a, c) => a + c.price * c.qty, 0)}
                 </h3>
-                <button onClick={checkoutHandler} className="button primary full-width" disabled={cartItems.length === 0}>
+                <button onClick={checkoutHandler} className="waves-effect waves-light btn-small cart-button" disabled={cartItems.length === 0}>
                     Proceed to Checkout
                 </button> 
             </div>

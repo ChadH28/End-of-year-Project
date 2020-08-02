@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { saveShipping } from '../../actions/cartActions';
 import Checkout from '../Checkout';
 import './Formpages.css';
@@ -43,9 +42,8 @@ function ShippingPage(props) {
                                     <input type="text" name="postalCode" id="postalCode" onChange={(e) => setPostalCode(e.target.value)}/>
                             </li>
                             <li>
-                                <button type="submit" className="button primary">Continue</button>
+                                <button type="submit" className="waves-effect waves-light btn-small form-btn">Continue</button>
                             </li>
-
                         </ul>
                     </form>
                 </div>

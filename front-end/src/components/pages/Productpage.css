@@ -4,6 +4,7 @@
     align-items: flex-start;
     flex-wrap: wrap;
     padding: 10px;
+    margin-top: 20px;
 }
 
 .description-image {
@@ -23,15 +24,17 @@
 .description-action {
     flex: 1 1 300px;
     border: 1px solid grey ; 
-    background-color: lightseagreen;
-    padding: 10px
+    background-color: #01579b ;
+    font-size: 16px;
+    padding: 10px;
+    color: white;
 }
 
 .description-info li, .description-action li {
     margin-bottom: 10px;
 }
 
-.back-link {
-    padding: 10px;
-    font-size: 14px;
+.product-button{
+    background-color: white;
+    color: #01579b;
 }

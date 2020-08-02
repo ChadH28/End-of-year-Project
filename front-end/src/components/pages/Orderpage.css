@@ -41,3 +41,7 @@
 .placeorder-actions-payment > div {
   width: 100%;
 }
+
+.order-btn{
+  background-color: #c04000;
+}

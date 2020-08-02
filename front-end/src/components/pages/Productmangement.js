@@ -5,6 +5,7 @@ import {
   listProducts,
   deleteProduct
 } from '../../actions/productActions';
+import './Productmangement.css'
 
 function ProductMangement(props) {
     const [_id, setId] = useState('');
@@ -30,9 +31,7 @@ function ProductMangement(props) {
 
     const productDelete = useSelector((state) => state.productDelete);
     const {
-        loading: loadingDelete,
-        success: successDelete,
-        error: errorDelete,
+        success: successDelete
     } = productDelete;
 
     const dispatch = useDispatch();
@@ -125,8 +124,8 @@ function ProductMangement(props) {
                         <textarea name="description" value={description} id="description" onChange={(e) => setDescription(e.target.value)}/>
                     </li>
                     <li>
-                        <button type="submit" className="button primary">{_id ? "Update":"Create"}</button>
-                        <button type="button" onClick={() => setModal(false)} className="button primary">Back</button>
+                        <button type="submit" className="waves-effect waves-light btn-small manage-button">{_id ? "Update":"Create"}</button>
+                        <button type="button" onClick={() => setModal(false)} className="waves-effect waves-light btn-small manage-button">Back</button>
                     </li>
                 </ul>
             </form>
@@ -154,8 +153,8 @@ function ProductMangement(props) {
                         <td>{product.category}</td>
                         <td>{product.material}</td>
                         <td>
-                            <button onClick={() => openModal(product)}><i className="material-icons">edit</i></button>
-                            <button onClick={() => deleteHandler(product)}><i className="material-icons">delete</i></button>
+                            <button className="waves-effect waves-light btn-small table-button" onClick={() => openModal(product)}><i className="material-icons">edit</i></button>
+                            <button className="waves-effect waves-light btn-small table-button" onClick={() => deleteHandler(product)}><i className="material-icons">delete</i></button>
                         </td>
                     </tr>
                 ))}

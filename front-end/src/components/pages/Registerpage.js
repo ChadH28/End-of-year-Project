@@ -56,10 +56,10 @@ function Registerpage(props) {
                         <input type="password" name="rePassword" id="rePassword" onChange={(e) => setRePassword(e.target.value)}/>
                     </li>
                     <li>
-                        <button type="submit" className="form-btn">Register</button>
+                        <button type="submit" className="waves-effect waves-light btn-small form-btn">Register</button>
                     </li>
                     <li>
-                        Already have an account? <Link to={redirect === "/" ? "signin" : "signin?redirect=" + redirect} className="form-btn">Sign-in</Link>
+                        Already have an account? <Link to={redirect === "/" ? "signin" : "signin?redirect=" + redirect} className="waves-effect waves-light btn-small second-form-btn">Sign-in</Link>
                     </li>
                 </ul>
             </form>

@@ -5,12 +5,12 @@
     margin: 50px auto;
 }
 .checkout-steps > div {
-    border-top: 3px #c0c0c0 solid;
-    color: #c0c0c0;
+    border-top: 3px #4fc3f7 solid;
+    color:#4fc3f7;
     flex: 1 1;
     padding-top: 10px;
 }
 .checkout-steps > div.active {
-    border-top: 3px #f08000 solid;
-    color: #f08000;
+    border-top: 3px #0277bd solid;
+    color: #0277bd;
 }
