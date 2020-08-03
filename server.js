@@ -4,6 +4,7 @@ const data = require('./data');
 const userRoute = require('./routes/userRoute');
 const productRoute = require('./routes/productRoute');
 const authRoute = require('./routes/authRoute')
+const path = require('path');
 
 
 const app = express();
@@ -36,3 +37,13 @@ app.get('/api/products/:id', (req,res) => {
     else
         res.status(404).send({msg: "Product not found."})
 });
+
+// Serve static assets in production
+if (process.env.NODE_ENV === 'production') {
+    // Set static folder
+    app.use(express.static('front-end/build'));
+  
+    app.get('*', (req, res) =>
+        res.sendFile(path.resolve(__dirname, 'front-end', 'build', 'index.html'))
+    );
+}
