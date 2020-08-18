@@ -59,7 +59,7 @@ function ProductPage(props) {
                             </li>
                             <li>
                                 Qty:{
-                                <select value={qty} onChange={(e) => {setQty(e.target.value)}}>
+                                <select className="browser-default" value={qty} onChange={(e) => {setQty(e.target.value)}}>
                                     {[...Array(product.numInStock).keys()].map((x) => (
                                         <option key={x + 1} value={x + 1}>
                                             {x + 1}
