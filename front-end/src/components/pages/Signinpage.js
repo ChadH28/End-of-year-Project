@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import './Formpages.css';
 import { Link } from 'react-router-dom';
 import {signin} from '../../actions/userActions';
-
+import Loader from '../Loader';
 
 function SigninPage(props) {
 
@@ -36,8 +36,8 @@ function SigninPage(props) {
                     <h2>Sign-In</h2>
                 </li>
                 <li>
-                    {loading && <div>Loading...</div>}
-                    {error && <div>{error}</div>}
+                    {loading && <Loader/>}
+                    {error && <span class="new badge red">{error}</span>}
                 </li>
                 <li>
                     <label htmlFor="email">Email</label>

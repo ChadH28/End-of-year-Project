@@ -5,7 +5,8 @@ import {
   listProducts,
   deleteProduct
 } from '../../actions/productActions';
-import './Productmangement.css'
+import './Productmangement.css';
+import Loader from '../Loader'
 
 function ProductMangement(props) {
     const [_id, setId] = useState('');
@@ -92,8 +93,8 @@ function ProductMangement(props) {
                         <h2>Create Product</h2>
                     </li>
                     <li>
-                        {loadingSave && <div>Loading...</div>}
-                        {errorSave && <div>{errorSave}</div>}
+                        {loadingSave && <Loader/>}
+                        {errorSave && <span className="new badge red">{errorSave}</span>}
                     </li>
                     <li>
                         <label htmlFor="name">Name</label>

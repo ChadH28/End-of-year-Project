@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import './Products.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { listProducts } from '../actions/productActions';
+import Loader from './Loader'
 
 function Products(props) {
     const productList = useSelector(state => state.productList);
@@ -15,7 +16,7 @@ function Products(props) {
           //
         };
     }, []);
-    return loading ? (<div>Loading...</div>)
+    return loading ? (<Loader/>)
         :error ? (<div>{error}</div>) : (
         <div className='content'>
           <ul className='products'>

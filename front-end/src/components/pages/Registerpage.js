@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { register } from '../../actions/userActions';
 import './Formpages.css';
+import Loader from '../Loader';
 
 
 function Registerpage(props) {
@@ -32,12 +33,12 @@ function Registerpage(props) {
 
     return (
         <div className="form">
-            <form onSubmit={submitHandler} >
+            <form onSubmit={submitHandler}>
                 <ul className="form-container">
                     <li><h2>Create Account</h2></li>
                     <li>
-                        {loading && <div>Loading...</div>}
-                        {error && <div>{error}</div>}
+                        {loading && <Loader/>}
+                        {error && <span class="new badge red">{error}</span>}
                     </li>
                     <li>
                         <label htmlFor="name">Name</label>

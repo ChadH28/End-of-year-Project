@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { descriptionProduct } from '../../actions/productActions';
 import './Productpage.css';
+import Loader from '../Loader'
 
 function ProductPage(props) {
 
@@ -25,7 +26,7 @@ function ProductPage(props) {
 
     return (
         <div>
-            {loading ? (<div>Loading...</div>)
+            {loading ? (<Loader/>)
             : error ? (<div>{error} </div>)
             : (            
                 <div className='description'>
