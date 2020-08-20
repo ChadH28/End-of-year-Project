@@ -17,7 +17,7 @@ function Products(props) {
         };
     }, []);
     return loading ? (<Loader/>)
-        :error ? (<div>{error}</div>) : (
+        :error ? (<span class="new badge red">{error}</span>) : (
         <div className='content'>
           <ul className='products'>
             {products.map(product =>

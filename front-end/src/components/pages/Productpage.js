@@ -27,7 +27,7 @@ function ProductPage(props) {
     return (
         <div>
             {loading ? (<Loader/>)
-            : error ? (<div>{error} </div>)
+            : error ? (<span class="new badge red">{error}</span>)
             : (            
                 <div className='description'>
                     <div className='description-image'>
