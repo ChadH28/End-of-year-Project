@@ -19,12 +19,12 @@ function Products(props) {
     return loading ? (<Loader/>)
         :error ? (<span class="new badge red">{error}</span>) : (
         <div className='content'>
-          <ul className='products'>
+          <ul className='grid'>
             {products.map(product =>
                 <li key={product._id}>
                     <div className='product'>
                         <Link to={'/product/'+ product._id}>
-                            <img className='product-image' src={product.image} alt='product item'/>
+                        <div className='overflow'><img src={product.image} alt='product item' className='product-img'/></div>
                         </Link>
                         <div className='product-name'><Link to={'/product/'+ product._id}>{product.name}</Link></div>
                         <div className='product-brand'>{product.material}</div>

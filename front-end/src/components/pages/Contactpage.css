@@ -1,0 +1,13 @@
+label{ 
+    font-size: 16px;
+    color: black;
+    margin-bottom: 10px
+}
+
+input > * {
+    color: black;
+}
+
+option {
+    font-size: 11px;
+}

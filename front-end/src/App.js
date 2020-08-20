@@ -9,6 +9,7 @@ import Sidebar from './components/Sidebar';
 import Footer from './components/Footer';
 // Pages
 import HomePage from './components/pages/Homepage';
+import ContactPage from './components/pages/Contactpage'
 import ProductPage from './components/pages/Productpage';
 import CartPage from './components/pages/Cartpage';
 import SigninPage from './components/pages/Signinpage';
@@ -35,6 +36,7 @@ function App() {
         <Route path='/shipping' component={ShippingPage}/>
         <Route path='/payment' component={PaymentsPage}/>
         <Route path='/placeorder' component={OrderPage}/>
+        <Route path='/contact' component={ContactPage}/>
       </main>
       <Footer/>
     </div>
