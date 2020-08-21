@@ -41,11 +41,11 @@ function SigninPage(props) {
                 </li>
                 <li>
                     <label htmlFor="email">Email</label>
-                    <input className="validate" type="email" name="email" id="email" onChange={(e) => setEmail(e.target.value)}/>
+                    <input className="validate" type="email" name="email" id="email" onChange={(e) => setEmail(e.target.value)} required/>
                 </li>
                 <li>
                     <label htmlFor="password">Password</label>
-                    <input type="password" id="password" name="password" onChange={(e) => setPassword(e.target.value)}/>
+                    <input type="password" id="password" name="password" onChange={(e) => setPassword(e.target.value)} required/>
                 </li>
                 <li>
                     <button type="submit" className="waves-effect waves-light btn-small form-btn">Signin</button>

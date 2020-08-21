@@ -1,19 +1,22 @@
 import React from 'react';
-import './Contactpage.css';
+import './Contact&Aboutpage.css';
+import image from '../../SouthAfrica.png';
 
 function Contactpage() {
     return (
         <div className="container">
             <div>
                 <h2>Contact Us</h2>
-                <p>Drop us a message, we're always eager to reply:</p>
+                <p>Need help with your order? Have a question about sizing? Feel free to get in touch with us with any questions you may have!</p>
+                <p>Email: fineprint@gmail.com</p>
+                <p>Phone: 021.231.5933</p>
             </div>
             <div className="row">
                 <div className='col s6 m6 l6'>
-                    <img src="/w3images/map.jpg" />
+                    <img src={image} alt='mapofSA'/>
                 </div>
                 <div className='col s6 m6 l6'>
-                    <form action="/action_page.php">
+                    <form action="https://formspree.io/xoqkzwko" method="POST">
                         <label htmlFor="fname">First Name</label>
                             <input type="text" id="fname" name="firstname" placeholder="Your name.."/>
                         <label htmlFor="lname">Last Name</label>

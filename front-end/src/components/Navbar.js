@@ -21,7 +21,7 @@ function Navbar() {
                 </div>
                 <ul id="nav-mobile" className="right">
                 {   
-                    userInfo ? <li><Link to='/profile'>{userInfo.name}</Link></li>
+                    userInfo ? <li>{userInfo.name}</li>
                     :
                     <li><Link to='/signin'><i className="material-icons">account_circle</i></Link></li>
                 }

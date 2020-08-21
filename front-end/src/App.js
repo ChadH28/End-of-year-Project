@@ -1,6 +1,5 @@
 import React from 'react';
 import {BrowserRouter, Route} from 'react-router-dom'
-
 // CSS
 import './App.css';
 // Components
@@ -9,7 +8,8 @@ import Sidebar from './components/Sidebar';
 import Footer from './components/Footer';
 // Pages
 import HomePage from './components/pages/Homepage';
-import ContactPage from './components/pages/Contactpage'
+import ContactPage from './components/pages/Contactpage';
+import AboutPage from './components/pages/Aboutpage';
 import ProductPage from './components/pages/Productpage';
 import CartPage from './components/pages/Cartpage';
 import SigninPage from './components/pages/Signinpage';
@@ -37,6 +37,7 @@ function App() {
         <Route path='/payment' component={PaymentsPage}/>
         <Route path='/placeorder' component={OrderPage}/>
         <Route path='/contact' component={ContactPage}/>
+        <Route path='/about' component={AboutPage}/>
       </main>
       <Footer/>
     </div>
