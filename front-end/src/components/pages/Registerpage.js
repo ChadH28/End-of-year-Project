@@ -54,7 +54,7 @@ function Registerpage(props) {
                     </li>
                     <li>
                         <label htmlFor="rePassword">Re-Enter Password</label>
-                        <input type="password" name="rePassword" id="rePassword" onChange={(e) => setRePassword(e.target.value)}/>
+                        <input type="password" name="rePassword" id="rePassword" onChange={(e) => setRePassword(e.target.value)} minLength='6'/>
                     </li>
                     <li>
                         <button type="submit" className="waves-effect waves-light btn-small form-btn">Register</button>

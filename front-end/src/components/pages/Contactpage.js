@@ -5,15 +5,15 @@ import image from '../../SouthAfrica.png';
 function Contactpage() {
     return (
         <div className="container">
-            <div>
+            <div className="row">
+            <div className='col s12 m12 l12'>
                 <h2>Contact Us</h2>
                 <p>Need help with your order? Have a question about sizing? Feel free to get in touch with us with any questions you may have!</p>
                 <p>Email: fineprint@gmail.com</p>
                 <p>Phone: 021.231.5933</p>
             </div>
-            <div className="row">
                 <div className='col s6 m6 l6'>
-                    <img src={image} alt='mapofSA'/>
+                    <img src={image} alt='mapofSA' className='local'/>
                 </div>
                 <div className='col s6 m6 l6'>
                     <form action="https://formspree.io/xoqkzwko" method="POST">
