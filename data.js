@@ -70,7 +70,7 @@ products: [
         size: 'S',
         rating: 2,
         reviews: 5,
-        numInStock: 15
+        numInStock: 1
     },
     {
         _id: '7',

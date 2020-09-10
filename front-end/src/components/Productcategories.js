@@ -20,8 +20,8 @@ function Products(props) {
         :error ? (<span class="new badge red">{error}</span>) : (
         <div className='content'>
           <ul className='grid'>
-            {products.map(product =>
-                <li key={product._id}>
+            {products.filter(product =>
+                <li key={product.category}>
                     <div className='product'>
                         <Link to={'/product/'+ product._id}>
                         <div className='overflow'><img src={product.image} alt='product item' className='product-img'/></div>
@@ -29,7 +29,7 @@ function Products(props) {
                         <div className='product-name'><Link to={'/product/'+ product._id}>{product.name}</Link></div>
                         <div className='product-brand'>{product.material}</div>
                         <div className='price'>R{product.price}</div>
-                        <div className='status'>{product.numInStock > 0 ? 'Stocked': 'Sorry, out of stock'}</div>
+                        <div className='rating'>{product.rating} Stars ({product.reviews} Review)</div>
                     </div>
                 </li>
             )}
