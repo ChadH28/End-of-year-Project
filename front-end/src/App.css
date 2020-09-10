@@ -28,5 +28,10 @@ body {
 
 .main {
   grid-area: main;
-  background-color: beige;
+  background-color: rgb(77, 76, 76);
+  color: white;
+}
+
+new badge red{
+  margin-top: 10px;  
 }
