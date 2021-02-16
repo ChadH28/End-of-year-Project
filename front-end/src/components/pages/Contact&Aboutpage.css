@@ -20,6 +20,33 @@ option {
   }
 
 .local{
-    width: 100%
+    width: 100%;
+    border-radius: 12px;   
 }
 
+.form-container{
+    background-color: rgba(0, 0, 0,0.7);
+    padding: 15px;
+    border: none;
+    color: white;
+}
+
+label{
+    color: white;
+    margin-top: 15px;
+}
+
+#fname,#lname,#subject{
+    padding-left: 10px;
+    padding-bottom: 5px;
+    color: white;
+}
+
+#province{
+    width: 125px;
+
+}
+
+.form-container .btn {
+    margin-top:15px;
+}

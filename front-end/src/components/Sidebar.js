@@ -8,9 +8,11 @@ function Sidebar() {
 
     return (
         <aside className='sidebar sidenav'>
-            <h3>Shopping Categories</h3>
+            <h3>Shopping Categories</h3> <hr></hr>
             <button className="sidebar-close-button btn-floating btn-small waves-effect waves-light" onClick={closeMenu}>
-                &times;
+                <div>
+                    &times;
+                </div>
             </button>
             <ul>
                 <li>

@@ -18,7 +18,8 @@ function Products(props) {
     }, []);
     return loading ? (<Loader/>)
         :error ? (<span className="new badge red">{error}</span>) : (
-        <div className='content'>
+        <div className='content container'>
+          <h1>Products</h1>
           <ul className='grid'>
             {products.map(product =>
                 <li key={product._id}>

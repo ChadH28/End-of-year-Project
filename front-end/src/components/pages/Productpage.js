@@ -25,6 +25,7 @@ function ProductPage(props) {
 
   return (
     <div>
+      
       {loading ? (
         <Loader />
       ) : error ? (

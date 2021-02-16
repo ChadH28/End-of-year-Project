@@ -16,11 +16,11 @@ function Contactpage() {
                     <img src={image} alt='mapofSA' className='local'/>
                 </div>
                 <div className='col s6 m6 l6'>
-                    <form action="https://formspree.io/xoqkzwko" method="POST">
+                    <form action="https://formspree.io/xoqkzwko" method="POST" className='form-container'>
                         <label htmlFor="fname">First Name</label>
-                            <input type="text" id="fname" name="firstname" placeholder="Your name.."/>
+                            <input type="text" id="fname" name="firstname" placeholder="John"/>
                         <label htmlFor="lname">Last Name</label>
-                            <input type="text" id="lname" name="lastname" placeholder="Your last name.."/>
+                            <input type="text" id="lname" name="lastname" placeholder="Doe"/>
                         <label htmlFor="country">Province / State</label>
                             <select className="browser-default" id="province" name="province">
                                 <option value="Western Cape">Western Cape</option>
@@ -34,7 +34,7 @@ function Contactpage() {
                                 <option value="Mpumalanga">Mpumalanga</option>
                             </select>
                         <label for="subject">Subject</label> 
-                            <textarea id="subject" name="subject" placeholder="Write something.." className="materialize-textarea"  data-length="120"/>
+                            <textarea id="subject" name="subject" placeholder="Write something.." row='3' className="materialize-textarea"  data-length="120"/>
                         <input class="waves-effect waves-light btn" type="submit" value="Submit"/>
                     </form>
                 </div>

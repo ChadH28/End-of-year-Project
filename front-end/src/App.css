@@ -1,13 +1,14 @@
 /* 16px * 62.5 = 10px */
 html {
   font-size: 62.5%;
-  box-sizing: border-box
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
+
 
 body {
   font: 14px;
   font-family: Arial, Helvetica, sans-serif;
-  height: 100vh;
   margin:0;
 }
 
@@ -34,4 +35,91 @@ body {
 
 new badge red{
   margin-top: 10px;  
+}
+
+
+
+/*-------------------
+landing page section
+--------------------- */
+header {
+  background-image: linear-gradient(
+      120deg,
+      rgba(223, 217, 217, 0.62),
+      rgba(90, 88, 88, 0.733)
+  ),
+    url(./images/store-bg.jpg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+
+.header-container {
+  height: auto;
+  width: 80%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+
+#heading {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.1);
+  font-size: 88px;
+  position: relative;
+  transform: translateY(0);
+  color: white;
+  animation: slideUp 2s ease forwards;
+  opacity: 0;
+}
+
+#slogan {
+  font-family: "NotoSans";
+  margin-left: 10px;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.1);
+  font-size: 30px;
+  font-weight: bold;
+  position: relative;
+  transform: translateY(0);
+  color: white;
+  animation: slideUp 2s ease forwards 1s;
+  opacity: 0;
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 0.8;
+  }
+}
+/*--------------------------
+end of landing page section
+---------------------------- */
+
+
+h1 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+h1 {
+  position: relative;
+  line-height: 1.2em;
+}
+
+h1:before {
+  position: absolute;
+  text-align: center;
+  height: 50px;
+  width: 60px;
+  content: "";
+  border-bottom: 2px solid red;
 }

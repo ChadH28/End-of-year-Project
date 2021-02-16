@@ -13,7 +13,7 @@ function Navbar() {
     const {userInfo} = userSignin;
 
     return (
-        <nav>
+        <nav className='navbar-fixed'>
             <div className="nav-wrapper">
                 <div className="brand-logo left" >
                     <button className="btn-flat" onClick={openMenu}>&#9776;</button>

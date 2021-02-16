@@ -34,6 +34,14 @@
   text-decoration: none;
 }
 
+.brand-logo{
+  margin-left: 15px;
+}
+
+.nav-mobile{
+  margin-right: 15px;
+}
+
 .nav-links Link {
   color: crimson;
   text-decoration: none;
