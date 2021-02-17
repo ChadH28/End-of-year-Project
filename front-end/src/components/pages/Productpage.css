@@ -24,7 +24,7 @@
 .description-action {
     flex: 1 1 300px;
     border: 1px solid grey ; 
-    background-color: #01579b ;
+    background-color: #212121;
     font-size: 16px;
     padding: 10px;
     color: white;
@@ -37,4 +37,12 @@
 .product-button{
     background-color: white;
     color: #01579b;
+    width: 100%;
+    margin-top: 15px;
+}
+
+select{
+    width: 50px;
+    margin-top: 10px;
+
 }
